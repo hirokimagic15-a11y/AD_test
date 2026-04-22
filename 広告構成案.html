@@ -28,6 +28,7 @@
     color: var(--ink);
     line-height: 1.75;
     font-size: 15px;
+    overflow-x: hidden;
   }
 
   /* ── Cover ── */
@@ -96,7 +97,7 @@
     line-height: 1.85;
   }
 
-  /* ── Summary Rewrite ── */
+  /* ── Summary ── */
   .sum-statement {
     font-size: 20px;
     font-weight: 300;
@@ -246,6 +247,13 @@
     font-weight: 700;
   }
 
+  /* ── Table wrapper (scroll on mobile) ── */
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   /* ── Tables ── */
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
   th {
@@ -256,6 +264,7 @@
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.06em;
+    white-space: nowrap;
   }
   td {
     padding: 13px 16px;
@@ -432,7 +441,7 @@
     padding: 5px 14px;
     flex-shrink: 0;
   }
-  .cr-meta { flex: 1; }
+  .cr-meta { flex: 1; min-width: 0; }
   .cr-title { font-size: 18px; font-weight: 700; }
   .cr-sub { font-size: 12px; color: var(--ink-mid); margin-top: 2px; }
 
@@ -622,111 +631,156 @@
     .cr-layout { grid-template-columns: 200px 1fr; gap: 32px; }
   }
 
-  /* ── Mobile ── */
+  /* ════════════════════════════
+     MOBILE  max-width: 768px
+  ════════════════════════════ */
   @media (max-width: 768px) {
+
     body { font-size: 14px; }
 
-    /* Container */
+    /* --- Container --- */
     .container { padding: 0 16px; }
 
-    /* Cover */
-    .cover { padding: 40px 20px 32px; }
-    .cover-title { font-size: 26px; }
+    /* --- Cover --- */
+    .cover { padding: 36px 20px 28px; }
+    .cover-title { font-size: 24px; }
     .cover-title span { font-size: 14px; }
 
-    /* Overview grid: 2col → 1col */
-    .cover-overview-grid { grid-template-columns: 1fr; }
-    .cover-ov-item { padding: 18px 16px; }
-    .cover-overview-section { padding: 32px 0 36px; }
+    /* --- Overview --- */
+    .cover-overview-section { padding: 28px 0 32px; }
+    .cover-overview-grid {
+      grid-template-columns: 1fr;
+    }
+    .cover-ov-item { padding: 16px; }
 
-    /* Flow banner: horizontal scroll */
+    /* --- Flow banner: 横並び→縦積み --- */
     .flow-banner {
-      padding: 20px 16px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      padding: 0;
+      flex-direction: column;
+      background: #1a1a1a;
       gap: 0;
     }
-    .flow-step { min-width: 140px; padding: 14px 16px; }
-
-    /* Sections */
-    .section { padding: 36px 0; }
-
-    /* Tables: horizontal scroll */
-    .section table,
-    .sub-sec table {
-      display: block;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      white-space: nowrap;
+    .flow-step {
+      border-right: none;
+      border-bottom: 1px solid #333;
+      padding: 16px 20px;
     }
+    .flow-step:last-child { border-bottom: none; }
+    .flow-step.active { border: none; border-bottom: 2px solid var(--gold); background: rgba(184,146,42,0.12); }
+    .flow-arrow { display: none; }
 
-    /* Callout */
-    .callout { padding: 18px 20px; }
+    /* --- Sections --- */
+    .section { padding: 28px 0; }
+    .sec-title { font-size: 17px; }
+    .sec-hd { gap: 12px; margin-bottom: 20px; }
 
-    /* Evidence grid: 3col → 1col */
-    .evidence-grid { grid-template-columns: 1fr; }
-    .evidence-card { padding: 24px 20px; }
-    .ev-headline { font-size: 20px; }
+    /* --- Callout --- */
+    .callout { padding: 16px 18px; }
+    .callout p { font-size: 13px; }
 
-    /* Desire stack */
-    .desire-row {
+    /* --- Evidence grid: 3col → 1col --- */
+    .evidence-grid {
       grid-template-columns: 1fr;
-      display: flex;
-      flex-direction: column;
     }
-    .desire-row > div { border-right: none; border-bottom: 1px solid var(--line); }
-    .desire-row > div:last-child { border-bottom: none; }
+    .evidence-card { padding: 20px 16px; }
+
+    /* --- Desire stack: グリッド→カード --- */
     .desire-row.head { display: none; }
+    .desire-row {
+      display: block;
+    }
+    .desire-row > div {
+      display: block;
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 16px;
+    }
+    .desire-row > div:last-child { border-bottom: none; }
+    .desire-label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 10px;
+      color: var(--gold);
+    }
 
-    /* Level grid: 3col → 1col */
-    .level-grid { grid-template-columns: 1fr; gap: 8px; margin-bottom: 24px; }
+    /* --- Level grid: 3col → 1col --- */
+    .level-grid {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .level-card { padding: 16px; }
 
-    /* Creative section */
+    /* --- Summary --- */
+    .summary-bg { padding: 32px 0 44px; }
+    .sum-statement { font-size: 15px; padding: 20px 0 28px; margin-bottom: 24px; }
+    .sum-point { grid-template-columns: 40px 1fr; }
+    .sum-point-num { padding: 16px 0; }
+    .sum-point-body { padding: 14px 12px; }
+    .sum-recommend { padding: 18px; }
+    .sum-recommend-val { font-size: 15px; }
+
+    /* --- Creative sections --- */
+    .creative-section { padding: 28px 0; }
     .creative-hd {
       flex-wrap: wrap;
-      gap: 10px;
-      padding-bottom: 12px;
-      margin-bottom: 24px;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 20px;
     }
-    .cr-title { font-size: 16px; }
+    .cr-title { font-size: 15px; }
     .fit-badge { font-size: 10px; padding: 4px 10px; }
 
-    /* Creative layout: 2col → 1col */
+    /* --- Creative layout: 2col → 1col --- */
     .cr-layout {
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 20px;
     }
-    .cr-img { position: static; }
-    .cr-img img { max-width: 260px; margin: 0 auto; }
+    .cr-img {
+      position: static;
+    }
+    .cr-img img {
+      max-width: 200px;
+      margin: 0 auto;
+      display: block;
+    }
 
-    /* Fit reason */
-    .fit-reason-body { grid-template-columns: 1fr; }
-    .fit-reason-col:first-child { border-right: none; border-bottom: 1px solid var(--line); }
-    .fit-reason-col { padding: 16px 18px; }
-
-    /* Copy rows */
-    .copy-row {
+    /* --- Fit reason: 2col → 1col --- */
+    .fit-reason-body {
       grid-template-columns: 1fr;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding: 12px 0;
     }
-    .copy-key { padding: 0; color: var(--ink-mid); }
-    .copy-val { padding: 0; }
+    .fit-reason-col:first-child {
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+    }
+    .fit-reason-col { padding: 16px; }
 
-    /* Point cards: 3col → 1col */
-    .point-cards { grid-template-columns: 1fr; gap: 8px; }
+    /* --- Copy rows: 横→縦 --- */
+    .copy-row {
+      display: block;
+      padding: 10px 0;
+    }
+    .copy-key {
+      display: block;
+      padding: 0 0 4px 0;
+      font-size: 11px;
+      color: var(--gold);
+    }
+    .copy-val {
+      display: block;
+      padding: 0;
+      font-size: 13px;
+    }
 
-    /* Summary */
-    .sum-statement { font-size: 16px; }
-    .sum-recommend { padding: 20px 20px; }
-    .sum-recommend-val { font-size: 16px; }
-    .summary-bg { padding: 40px 0 52px; }
+    /* --- Point cards: 3col → 1col --- */
+    .point-cards {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .pt-card { padding: 14px; text-align: left; }
 
-    /* Sum points */
-    .sum-point { grid-template-columns: 40px 1fr; }
-    .sum-point-body { padding: 18px 16px; }
+    /* --- Note card --- */
+    .note-card { font-size: 12px; padding: 14px 16px; }
   }
 </style>
 </head>
@@ -779,6 +833,7 @@
     <div class="sec-num">01</div>
     <div class="sec-title">ターゲット分析</div>
   </div>
+  <div class="table-wrap">
   <table>
     <thead><tr><th>項目</th><th>内容</th></tr></thead>
     <tbody>
@@ -789,12 +844,14 @@
       <tr><td>現状課題</td><td>SNSでの認知は取れているが、来場・予約への転換が弱い</td></tr>
     </tbody>
   </table>
+  </div>
 
   <div style="margin-top: 32px;">
     <div class="sec-hd" style="margin-bottom:20px;">
       <div class="sec-num">+</div>
       <div class="sec-title" style="font-size:16px;">媒体特性（関西ウォーカー）</div>
     </div>
+    <div class="table-wrap">
     <table>
       <thead><tr><th>特性</th><th>内容</th></tr></thead>
       <tbody>
@@ -803,6 +860,7 @@
         <tr><td>郊外レジャー相性</td><td>高い</td></tr>
       </tbody>
     </table>
+    </div>
     <div class="callout" style="margin-top:16px;">
       <strong>媒体方針</strong>
       <p>勢いだけの絶叫訴求より、<b>"二人の休日の行き先決定"</b>に寄せた方が媒体に合う。雑誌広告でやるべきことは「もっとバズらせる」ではなく、<b>予約行動へ変えること</b>。</p>
@@ -830,18 +888,24 @@
       <div>根拠・補足</div>
     </div>
     <div class="desire-row">
-      <div class="desire-label">第一欲求</div>
-      <div class="desire-core">魅力的でいたい ／<br>相手にとって良い時間を<br>作れる人でいたい</div>
+      <div><span class="desire-label">第一欲求</span>
+        <div class="desire-core">魅力的でいたい ／ 相手にとって良い時間を作れる人でいたい</div>
+      </div>
+      <div class="desire-core" style="display:none"></div>
       <div class="desire-reason">読者は「絶叫そのものを買う」より、「この場所を選んだ自分はセンスがいい」「この休日を用意した自分は相手を喜ばせられる」という自己像を買いやすい</div>
     </div>
     <div class="desire-row">
-      <div class="desire-label">第二欲求</div>
-      <div class="desire-core">ありきたりの休日で<br>終わりたくない ／<br>ハズしたくない</div>
+      <div><span class="desire-label">第二欲求</span>
+        <div class="desire-core">ありきたりの休日で終わりたくない ／ ハズしたくない</div>
+      </div>
+      <div class="desire-core" style="display:none"></div>
       <div class="desire-reason">読者は比較・検討型。「怖い」「高い」だけでなく「次の休日候補として失敗しにくい理由」を与える必要がある</div>
     </div>
     <div class="desire-row">
-      <div class="desire-label">第三欲求</div>
-      <div class="desire-core">話題の新名所を<br>先に押さえたい ／<br>少し優位でいたい</div>
+      <div><span class="desire-label">第三欲求</span>
+        <div class="desire-core">話題の新名所を先に押さえたい ／ 少し優位でいたい</div>
+      </div>
+      <div class="desire-core" style="display:none"></div>
       <div class="desire-reason">「まだ行ってないの？」「そこ知ってるんだ」という社会的優位感に変換できる。「新名所」志向の読者と相性が良い</div>
     </div>
   </div>
@@ -926,6 +990,7 @@
     雑誌の純広告で最初から高単価の絶叫体験を売り切るより、<strong>「まずは橋を渡る」という低ハードルの入口を売り、現地やLPでアップセルさせる方が合理的</strong>。
   </p>
 
+  <div class="table-wrap">
   <table class="product-table">
     <thead><tr><th>アクティビティ</th><th>料金</th><th>役割</th></tr></thead>
     <tbody>
@@ -939,6 +1004,7 @@
       <tr><td>スイング</td><td>—</td><td>現地・LP アップセル</td></tr>
     </tbody>
   </table>
+  </div>
 </div>
 
 </div><!-- /container -->
@@ -987,14 +1053,16 @@
 
       <div class="sub-sec">
         <div class="sub-label">設計方針との整合チェック</div>
+        <div class="table-wrap">
         <table style="font-size:13px;">
           <tbody>
-            <tr><td style="width:200px;">「見て知るだけでは、もったいない。」</td><td>認知済みの読者への後押し ✓</td></tr>
+            <tr><td>「見て知るだけでは、もったいない。」</td><td>認知済みの読者への後押し ✓</td></tr>
             <tr><td>「次のデート先ではなく、次の思い出先。」</td><td>第一欲求への直接訴求 ✓</td></tr>
             <tr><td>TikTokフォロワー数・再生数の数値提示</td><td>社会的証明（証拠②） ✓</td></tr>
             <tr><td>クーポンQRの設置</td><td>行動ハードル低減（証拠③） ✓</td></tr>
           </tbody>
         </table>
+        </div>
       </div>
 
       <div class="sub-sec">
@@ -1207,6 +1275,7 @@
 
       <div class="sub-sec">
         <div class="sub-label">アクティビティ料金</div>
+        <div class="table-wrap">
         <table style="font-size:13px;">
           <thead><tr><th>アクティビティ</th><th>料金</th></tr></thead>
           <tbody>
@@ -1216,6 +1285,7 @@
             <tr><td>スイング</td><td>記載あり（料金不明）</td></tr>
           </tbody>
         </table>
+        </div>
       </div>
 
     </div>
