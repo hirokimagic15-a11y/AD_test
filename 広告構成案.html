@@ -178,9 +178,14 @@
   /* ── Fit Reason ── */
   .fit-reason { background: var(--white); border: 1px solid var(--line); margin-bottom: 32px; overflow: hidden; }
   .fit-reason-hd { background: #f0ede6; padding: 10px 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
-  .fit-reason-body { display: grid; grid-template-columns: 1fr 1fr; }
-  .fit-reason-col { padding: 20px 22px; }
-  .fit-reason-col:first-child { border-right: 1px solid var(--line); }
+  .fit-reason-body { padding: 20px 24px; }
+  .intent-lead { font-size: 14px; color: var(--ink); line-height: 1.85; margin-bottom: 16px; }
+  .intent-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .intent-list li { font-size: 13px; color: var(--ink); padding: 10px 0 10px 20px; position: relative; border-bottom: 1px solid #f4f1ec; line-height: 1.7; }
+  .intent-list li:last-child { border-bottom: none; }
+  .intent-list li::before { content: '▶'; position: absolute; left: 0; font-size: 9px; color: var(--gold); top: 13px; }
+  .intent-list li b { color: var(--ink); font-weight: 700; }
+  .intent-note { margin-top: 16px; padding: 12px 16px; background: #f9f7f3; border-left: 3px solid var(--ink-soft); font-size: 13px; color: var(--ink-mid); line-height: 1.8; }
   .fit-reason-col-label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--ink); margin-bottom: 10px; text-transform: uppercase; }
   .mind-list { list-style: none; }
   .mind-list li { font-size: 13px; padding: 7px 0 7px 18px; position: relative; border-bottom: 1px solid #f4f1ec; line-height: 1.65; }
@@ -273,10 +278,11 @@
     .cr-img { position: static; }
     .cr-img img { max-width: 200px; margin: 0 auto; display: block; }
 
-    /* ─ Fit reason: 2col → 1col ─ */
-    .fit-reason-body { grid-template-columns: 1fr; }
-    .fit-reason-col:first-child { border-right: none; border-bottom: 1px solid var(--line); }
-    .fit-reason-col { padding: 14px 16px; }
+    /* ─ Fit reason ─ */
+    .fit-reason-body { padding: 14px 16px; }
+    .intent-lead { font-size: 13px; }
+    .intent-list li { font-size: 12px; }
+    .intent-note { font-size: 12px; }
 
     /* ─ Copy rows: 横 → 縦 ─ */
     .copy-row { display: block; padding: 10px 0; }
@@ -539,25 +545,15 @@
     <div class="cr-body">
 
       <div class="fit-reason">
-        <div class="fit-reason-hd">なぜこの案が合うか</div>
+        <div class="fit-reason-hd">この案をこう構成した理由</div>
         <div class="fit-reason-body">
-          <div class="fit-reason-col">
-            <div class="fit-reason-col-label">接触時点のターゲット心理状態</div>
-            <ul class="mind-list">
-              <li>3ページの記事を読み、GRAVITATEの概要・体験内容は把握している</li>
-              <li>「面白そう」「行ってみたいかも」という気持ちはあるが、まだ「自分たちが行く場所」と確信できていない</li>
-              <li>「次の休日にどこ行く？」という選択肢の一つとして頭の中に残っている状態</li>
-            </ul>
-          </div>
-          <div class="fit-reason-col">
-            <div class="fit-reason-col-label">この案が合う理由</div>
-            <ul class="reason-list">
-              <li>「見て知るだけでは」という冒頭が既知前提で話し始めるため違和感なく入る</li>
-              <li>「思い出先」という言葉が第一欲求（相手に良い時間を作りたい）に直撃する</li>
-              <li>TikTok数値が「外さない場所」の安心感を担保し、第二欲求のハズしたくない心理に効く</li>
-              <li>クーポンQRが「今すぐ動ける理由」を与え、迷いを行動に変える</li>
-            </ul>
-          </div>
+          <p class="intent-lead">4ページ目の読者は前3ページでGRAVITATEをすでに把握している。もう一度施設を説明しても意味がない。だからこの案は<strong>「知っている人に、来る理由を渡す」</strong>一点に絞った設計にした。</p>
+          <ul class="intent-list">
+            <li><b>「見て知るだけでは、もったいない。」で始める</b> → 知らない人への説明ではなく、知っている人への「そうそう」という共鳴から入る。既知前提で語りかけることで読者の心理状態とズレが生じない。</li>
+            <li><b>「次のデート先ではなく、次の思い出先。」</b> → スペックではなく自己像を売る。「この休日を選んだ自分は相手を喜ばせられる人だ」という第一欲求に直接働きかけるコピーにした。</li>
+            <li><b>TikTok数値を数字で出す</b> → 「みんなが行っている場所」という社会的証明で、第二欲求（ハズしたくない）の不安を消す。数字は装飾ではなく欲求の補強材料として使っている。</li>
+            <li><b>クーポンQRを置く</b> → 気持ちが動いたその瞬間に予約できる導線を作る。迷いを摩擦なく行動に変えるための装置。</li>
+          </ul>
         </div>
       </div>
 
@@ -619,33 +615,15 @@
     <div class="cr-body">
 
       <div class="fit-reason">
-        <div class="fit-reason-hd">なぜこの案が合う／合わないか</div>
+        <div class="fit-reason-hd">この案をこう構成した理由</div>
         <div class="fit-reason-body">
-          <div class="fit-reason-col">
-            <div class="fit-reason-col-label">接触時点のターゲット心理状態</div>
-            <ul class="mind-list">
-              <li>「ありきたりな休日を変えたい」という潜在欲求はあるが、GRAVITATEを十分に知らない層を想定した構成</li>
-              <li>4ページ目の読者はすでに記事で施設を把握しているため、「新鮮な情報」としては機能しにくい</li>
-              <li>ただし感情の入口（共感導入）としては4ページ目でも有効に働く部分がある</li>
-            </ul>
-          </div>
-          <div class="fit-reason-col">
-            <div class="fit-reason-col-label">4ページ目での適合・不適合</div>
-            <ul class="reason-list">
-              <li>「ありきたりなデートで終わらせたくない」という共感導入は第一・第二欲求と合致する ✓</li>
-            </ul>
-            <ul class="reason-list ng" style="margin-top:8px;">
-              <li>施設説明から始まる構成は4ページ読者には既知情報の繰り返しになる</li>
-              <li>行動転換を後押しする数値証拠・クーポン訴求が相対的に弱い</li>
-              <li>「まだ知らない人」を対象にした文脈で書かれているため、認知度4には合いにくい</li>
-            </ul>
-          </div>
+          <p class="intent-lead">感情的な共感から入る構成を選んだのは、<strong>GRAVITATEをまだよく知らない読者でも自然に引き込める</strong>からだ。「ありきたりなデートで終わらせたくない」という問いかけは欲求を先に刺激し、そこから施設を紹介する「感情→スペック」の順序で作っている。</p>
+          <ul class="intent-list">
+            <li><b>感情共感から始める</b> → 施設を知らなくても「自分のことだ」と引っかかりを生む。認知度3（商品は知っているが効用との結びつきが薄い）の読者に有効な入口。</li>
+            <li><b>「日本一長い吊橋を、二人で渡る。」</b> → 体験のビジュアルを言語で想起させ、「行ってみたい」という感覚を具体化する。</li>
+          </ul>
+          <div class="intent-note">4ページ目の読者は前3ページで施設をすでに把握しているため、この案が想定するターゲット（まだ知らない層）とはズレが生じる。感情の入口としては機能するが、行動を後押しする数値証拠・クーポン訴求が薄く、「知っているのに来ていない人の背中を押す」用途には不向き。</div>
         </div>
-      </div>
-
-      <div class="sub-sec">
-        <div class="sub-label">評価</div>
-        <div class="note-card">欲求訴求の方向性は正しい。ただし「施設を知らない人への説明」に近い構成のため、4ページ目の読者（既知）には冗長になる。感情導入部としては機能するが、行動転換の後押し要素（数値証拠・クーポン訴求）が相対的に弱い。</div>
       </div>
 
       <div class="sub-sec">
@@ -688,31 +666,15 @@
     <div class="cr-body">
 
       <div class="fit-reason">
-        <div class="fit-reason-hd">なぜこの案が合わないか</div>
+        <div class="fit-reason-hd">この案をこう構成した理由</div>
         <div class="fit-reason-body">
-          <div class="fit-reason-col">
-            <div class="fit-reason-col-label">この案が想定するターゲット心理状態</div>
-            <ul class="mind-list">
-              <li>「バンジーをやってみたい」という明確な絶叫欲求を持っている</li>
-              <li>「解放感」「非日常」「スリル」を主目的として体験を探している</li>
-              <li>カップルというより個人の体験衝動で動いている層</li>
-            </ul>
-          </div>
-          <div class="fit-reason-col">
-            <div class="fit-reason-col-label">関西ウォーカー読者との不一致</div>
-            <ul class="reason-list ng">
-              <li>関西ウォーカー読者の核心欲求は「スリルそのもの」ではなく「相手に喜ばれる体験」</li>
-              <li>「飛んだ人にしかわからない！」という絶叫訴求は第一欲求（魅力的でいたい）と結びつきにくい</li>
-              <li>比較・検討型の読者には「失敗しにくい理由」がなく、ハードルが高く感じられる</li>
-              <li>ブリッジウォーク入口→アップセルという来場動線にも逆行する</li>
-            </ul>
-          </div>
+          <p class="intent-lead">バンジーという体験の圧倒的な非日常感を一点突破で訴求する設計にした。<strong>「飛びたい」という明確な衝動を持つ層を直接狙う</strong>ことで、迷いのない行動喚起を目指している。</p>
+          <ul class="intent-list">
+            <li><b>「飛んだ人にしかわからない」という表現</b> → スリル体験へのフォーモー（自分だけが知らないかもしれないという感覚）を刺激し、体験欲求を高める。</li>
+            <li><b>「解放感」「リセット」という言語</b> → 日常ストレスからの逃避欲求を持つ層に響く。「非日常に飛び込みたい」という衝動型ターゲットを前提にした構成。</li>
+          </ul>
+          <div class="intent-note">この案が刺さるのは「自分がスリルを体験したい」という個人の体験衝動で動く層。関西ウォーカーの主要読者（カップル・比較検討型）が動く欲求「相手を喜ばせたい・ハズしたくない」とは方向がズレており、バンジーという高単価・高ハードルの訴求が来場の障壁になりやすい。別媒体・別チャネルでの運用が向いている。</div>
         </div>
-      </div>
-
-      <div class="sub-sec">
-        <div class="sub-label">評価</div>
-        <div class="note-card">「地上60mからの解放感」という絶叫訴求は、関西ウォーカーの読者層（比較・検討型カップル）には刺さりにくい。バンジーそのものへの強い欲求がある層向けの<b>別媒体・別チャネル運用が適切</b>。</div>
       </div>
 
       <div class="sub-sec">
@@ -746,34 +708,15 @@
     <div class="cr-body">
 
       <div class="fit-reason">
-        <div class="fit-reason-hd">なぜこの案が合う／合わないか</div>
+        <div class="fit-reason-hd">この案をこう構成した理由</div>
         <div class="fit-reason-body">
-          <div class="fit-reason-col">
-            <div class="fit-reason-col-label">この案が想定するターゲット心理状態</div>
-            <ul class="mind-list">
-              <li>TikTokなどSNSでGODA BRIDGEの動画を見たことがある</li>
-              <li>「知ってる・見た」という認識はあるが、まだ来場に至っていない</li>
-              <li>「見てるだけじゃもったいない」という後押しで行動に動ける状態にある</li>
-            </ul>
-          </div>
-          <div class="fit-reason-col">
-            <div class="fit-reason-col-label">雑誌媒体での適合・不適合</div>
-            <ul class="reason-list">
-              <li>「見たことがある→行く」の転換という方向性は認知度4の設計と一致する ✓</li>
-              <li>「見てるだけじゃ、もったいない。」というコピーは第二欲求（ハズしたくない）に効く ✓</li>
-            </ul>
-            <ul class="reason-list ng" style="margin-top:8px;">
-              <li>「この動画、もう見た？」という前提は、動画未視聴の読者には成立しない</li>
-              <li>雑誌読者全員にSNS動画接触を前提に置くと、前提が外れたとき空振りになる</li>
-              <li>デジタルリターゲティング広告との連動が前提の設計であり、雑誌単体では機能しにくい</li>
-            </ul>
-          </div>
+          <p class="intent-lead">TikTokでGODA BRIDGEを見たことがある人を前提に、<strong>「SNS認知を来場行動に転換させる」</strong>ための設計にした。「知っているのに来ていない」という状態への直接的な刺激が狙い。</p>
+          <ul class="intent-list">
+            <li><b>「この動画、もう見た？」という問いかけ</b> → 動画を見た読者に「そう、見た見た」という共鳴を生む。SNS認知という既存資産を来場動機に変換する導線。</li>
+            <li><b>「見てるだけじゃ、もったいない。」</b> → 「行動していない自分」への気づきを促す。知っているのに来ていない状態を揺さぶるコピー。</li>
+          </ul>
+          <div class="intent-note">この案は「動画を見た」という前提が成立して初めて刺さる構成のため、雑誌読者全員に届ける場面では前提が外れやすい。SNSリターゲティング広告など、動画接触済みの読者に絞って配信できるデジタル施策との連動が前提になる。</div>
         </div>
-      </div>
-
-      <div class="sub-sec">
-        <div class="sub-label">評価</div>
-        <div class="note-card">「この動画、もう見た？」というSNS接触者への呼びかけはデジタル広告（リターゲティング等）では有効。雑誌媒体では「まだ動画を見ていない読者」もいるため、前提の置き方に注意が必要。<b>デジタル施策との連動前提で使うべきクリエイティブ</b>。</div>
       </div>
 
       <div class="sub-sec">
