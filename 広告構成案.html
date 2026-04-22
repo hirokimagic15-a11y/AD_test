@@ -66,6 +66,104 @@
     line-height: 1.8;
   }
 
+  /* ── Cover Overview ── */
+  .cover-overview {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid #2a2a2a;
+  }
+  .cover-overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #222;
+  }
+  .cover-ov-item {
+    background: #161616;
+    padding: 22px 24px;
+  }
+  .cover-ov-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .cover-ov-body {
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.8;
+  }
+
+  /* ── Summary Rewrite ── */
+  .sum-statement {
+    font-size: 20px;
+    font-weight: 300;
+    color: #ccc;
+    line-height: 1.75;
+    padding: 32px 0 40px;
+    border-bottom: 1px solid #222;
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+  }
+  .sum-statement strong { color: #fff; font-weight: 700; }
+
+  .sum-points { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
+  .sum-point {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0;
+    background: #161616;
+  }
+  .sum-point-num {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #444;
+    border-right: 1px solid #222;
+  }
+  .sum-point-body { padding: 24px 28px; }
+  .sum-point-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ddd;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .sum-point-text {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.85;
+  }
+
+  .sum-recommend {
+    background: #0d0d0d;
+    border: 1px solid #333;
+    border-left: 4px solid var(--gold);
+    padding: 28px 32px;
+  }
+  .sum-recommend-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .sum-recommend-val {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .sum-recommend-reason {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.85;
+  }
+
   /* ── Page Flow Banner ── */
   .flow-banner {
     background: #1a1a1a;
@@ -550,14 +648,29 @@
 <!-- ── Cover ── -->
 <div class="cover">
   <div class="container">
-    <div class="cover-eyebrow">Marketing Document — Revised</div>
     <h1 class="cover-title">
       GRAVITATE OSAKA
-      <span>広告構成案（改訂版）</span>
+      <span>広告構成案</span>
     </h1>
-    <div class="cover-note">
-      分析テキストをベースに再設計<br>
-      参照素材：認知度3用.png / 認知度4用.png / その他1.png / その他2.png
+    <div class="cover-overview">
+      <div class="cover-overview-grid">
+        <div class="cover-ov-item">
+          <div class="cover-ov-label">掲載媒体・位置</div>
+          <div class="cover-ov-body">関西ウォーカー ／ 純広告（4ページ目）<br>前3ページの編集記事広告を経た後に接触する構成</div>
+        </div>
+        <div class="cover-ov-item">
+          <div class="cover-ov-label">ターゲットの欲求の核</div>
+          <div class="cover-ov-body">「二人の休日を、ただ消費するのではなく、相手に喜ばれる少し特別な記憶に変えたい」<br>スリルよりも関係性・記憶・優越感が動機の中心</div>
+        </div>
+        <div class="cover-ov-item">
+          <div class="cover-ov-label">設計フレームワーク</div>
+          <div class="cover-ov-body">認知度4「商品を知っているが自分に合うかわからない」状態の読者に対し、欲求を正当化して行動へ押す。施設説明の繰り返しではなく3つの証拠で背中を押す構成</div>
+        </div>
+        <div class="cover-ov-item">
+          <div class="cover-ov-label">既存クリエイティブの評価</div>
+          <div class="cover-ov-body">4案（認知度3・4向け ／ バンジー特化 ／ SNS認知活用）を媒体ターゲットとの適合度で評価。認知度4向け「ブランド転換訴求型」が最も設計方針と一致</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1041,43 +1154,50 @@
 <div class="summary-bg">
   <div class="container">
     <div class="sec-hd" style="margin-bottom:36px;">
-      <div class="sec-num" style="color:#444;">総括</div>
-      <div class="sec-title" style="color:#fff;">純広告（4ページ目）の正解</div>
+      <div class="sec-num" style="color:#444;">まとめ</div>
+      <div class="sec-title" style="color:#fff;">この構成案で伝えたいこと</div>
     </div>
 
-    <div class="sum-grid">
-      <div class="sum-card">
-        <div class="sum-label">認知度設定</div>
-        <div class="sum-val gold">認知度4</div>
+    <div class="sum-statement">
+      純広告の役割は「施設を知らせること」ではなく、<br>
+      <strong>「すでに知っている人に、行く理由を与えること」</strong>だ。
+    </div>
+
+    <div class="sum-points">
+      <div class="sum-point">
+        <div class="sum-point-num">01</div>
+        <div class="sum-point-body">
+          <div class="sum-point-title">読者は「認知度4」の状態で純広告に接触する</div>
+          <div class="sum-point-text">前3ページの編集記事を読んだ後の読者は、GRAVITATEを「知っている」。純広告がすべきことは再説明ではなく、「自分たちが行くべき場所だ」という確信を与え、クーポンQRで行動させることに絞られる。</div>
+        </div>
       </div>
-      <div class="sum-card">
-        <div class="sum-label">やること</div>
-        <div class="sum-val">欲求の正当化 ＋<br>行動の後押し</div>
+      <div class="sum-point">
+        <div class="sum-point-num">02</div>
+        <div class="sum-point-body">
+          <div class="sum-point-title">ターゲットの核心は「スリル」ではなく「関係性・記憶・優越感」</div>
+          <div class="sum-point-text">関西ウォーカーの読者層（30〜49歳カップル・比較検討型）が動く欲求は、「相手に喜ばれる時間を作れる自分でいたい」という自己像の欲求だ。絶叫訴求より「次の思い出先」という切り口の方が媒体に合う。</div>
+        </div>
       </div>
-      <div class="sum-card">
-        <div class="sum-label">やらないこと</div>
-        <div class="sum-val">施設説明の繰り返し</div>
+      <div class="sum-point">
+        <div class="sum-point-num">03</div>
+        <div class="sum-point-body">
+          <div class="sum-point-title">証拠は3点に絞る。数字は説明ではなく欲求を補強する材料として使う</div>
+          <div class="sum-point-text">「日本最長420m」で新名所性を証明し、「TikTok 59,300F ／ 860万再生」で話題性を担保し、「クーポンQR」で今すぐ動ける理由を与える。この3点で第一〜第三欲求すべてに触れられる。</div>
+        </div>
       </div>
-      <div class="sum-card">
-        <div class="sum-label">証拠①</div>
-        <div class="sum-val">日本最長 420m<br><span style="font-size:12px; color:#aaa;">新名所性の証明</span></div>
+      <div class="sum-point">
+        <div class="sum-point-num">04</div>
+        <div class="sum-point-body">
+          <div class="sum-point-title">入口はブリッジウォーク。高単価アクティビティは現地・LPでアップセル</div>
+          <div class="sum-point-text">雑誌純広告でバンジーを最初から売り切ろうとすると来場ハードルが上がる。「まず橋を渡る」という低単価・低ハードルの入口を売り、現地体験の勢いで上位アクティビティへつなげる設計が合理的だ。</div>
+        </div>
       </div>
-      <div class="sum-card">
-        <div class="sum-label">証拠②</div>
-        <div class="sum-val">TikTok 59,300F ／ 860万再生<br><span style="font-size:12px; color:#aaa;">話題性・社会的証明</span></div>
-      </div>
-      <div class="sum-card">
-        <div class="sum-label">証拠③</div>
-        <div class="sum-val">クーポン QR<br><span style="font-size:12px; color:#aaa;">行動ハードルを下げる</span></div>
-      </div>
-      <div class="sum-card">
-        <div class="sum-label">入口商品</div>
-        <div class="sum-val">ブリッジウォーク（低ハードル）<br><span style="font-size:12px; color:#aaa;">高単価はLPで・現地でアップセル</span></div>
-      </div>
-      <div class="sum-card" style="grid-column: span 2;">
-        <div class="sum-label">最も適合する既存クリエイティブ</div>
-        <div class="sum-val gold">認知度4用.png（ブランド転換訴求型）</div>
-      </div>
+    </div>
+
+    <div class="sum-recommend">
+      <div class="sum-recommend-label">既存4案の中で最も設計方針と一致するクリエイティブ</div>
+      <div class="sum-recommend-val">認知度4向け「ブランド転換訴求型」（認知度4用.png）</div>
+      <div class="sum-recommend-reason">「見て知るだけでは、もったいない。」という冒頭が既知前提の後押しとして機能し、「次の思い出先」というコピーが第一欲求に直撃。TikTok数値とクーポンQRで3証拠が揃っている。</div>
     </div>
   </div>
 </div>
