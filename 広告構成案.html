@@ -621,6 +621,113 @@
     .cr-img { position: static; }
     .cr-layout { grid-template-columns: 200px 1fr; gap: 32px; }
   }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    body { font-size: 14px; }
+
+    /* Container */
+    .container { padding: 0 16px; }
+
+    /* Cover */
+    .cover { padding: 40px 20px 32px; }
+    .cover-title { font-size: 26px; }
+    .cover-title span { font-size: 14px; }
+
+    /* Overview grid: 2col → 1col */
+    .cover-overview-grid { grid-template-columns: 1fr; }
+    .cover-ov-item { padding: 18px 16px; }
+    .cover-overview-section { padding: 32px 0 36px; }
+
+    /* Flow banner: horizontal scroll */
+    .flow-banner {
+      padding: 20px 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 0;
+    }
+    .flow-step { min-width: 140px; padding: 14px 16px; }
+
+    /* Sections */
+    .section { padding: 36px 0; }
+
+    /* Tables: horizontal scroll */
+    .section table,
+    .sub-sec table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+
+    /* Callout */
+    .callout { padding: 18px 20px; }
+
+    /* Evidence grid: 3col → 1col */
+    .evidence-grid { grid-template-columns: 1fr; }
+    .evidence-card { padding: 24px 20px; }
+    .ev-headline { font-size: 20px; }
+
+    /* Desire stack */
+    .desire-row {
+      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
+    }
+    .desire-row > div { border-right: none; border-bottom: 1px solid var(--line); }
+    .desire-row > div:last-child { border-bottom: none; }
+    .desire-row.head { display: none; }
+
+    /* Level grid: 3col → 1col */
+    .level-grid { grid-template-columns: 1fr; gap: 8px; margin-bottom: 24px; }
+
+    /* Creative section */
+    .creative-hd {
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .cr-title { font-size: 16px; }
+    .fit-badge { font-size: 10px; padding: 4px 10px; }
+
+    /* Creative layout: 2col → 1col */
+    .cr-layout {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .cr-img { position: static; }
+    .cr-img img { max-width: 260px; margin: 0 auto; }
+
+    /* Fit reason */
+    .fit-reason-body { grid-template-columns: 1fr; }
+    .fit-reason-col:first-child { border-right: none; border-bottom: 1px solid var(--line); }
+    .fit-reason-col { padding: 16px 18px; }
+
+    /* Copy rows */
+    .copy-row {
+      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 0;
+    }
+    .copy-key { padding: 0; color: var(--ink-mid); }
+    .copy-val { padding: 0; }
+
+    /* Point cards: 3col → 1col */
+    .point-cards { grid-template-columns: 1fr; gap: 8px; }
+
+    /* Summary */
+    .sum-statement { font-size: 16px; }
+    .sum-recommend { padding: 20px 20px; }
+    .sum-recommend-val { font-size: 16px; }
+    .summary-bg { padding: 40px 0 52px; }
+
+    /* Sum points */
+    .sum-point { grid-template-columns: 40px 1fr; }
+    .sum-point-body { padding: 18px 16px; }
+  }
 </style>
 </head>
 <body>
