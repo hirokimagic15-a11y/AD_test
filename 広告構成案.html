@@ -3,607 +3,728 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GRAVITATE OSAKA 広告構成案</title>
+<title>GRAVITATE OSAKA 広告構成案（改訂版）</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink:      #111111;
+    --ink-mid:  #555555;
+    --ink-soft: #999999;
+    --line:     #e2dfda;
+    --bg:       #f6f4f0;
+    --white:    #ffffff;
+    --gold:     #b8922a;
+    --red:      #b83030;
+    --blue:     #245098;
+    --orange:   #c85820;
+    --purple:   #4a3890;
+    --green:    #207850;
+  }
 
   body {
     font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
-    background: #f5f4f0;
-    color: #1a1a1a;
-    line-height: 1.7;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
   }
 
   /* ── Cover ── */
   .cover {
-    background: #0d0d0d;
-    color: #fff;
-    padding: 80px 60px 60px;
-    position: relative;
-    overflow: hidden;
+    background: var(--ink);
+    color: var(--white);
+    padding: 72px 64px 56px;
   }
-  .cover::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.03) 100%);
-  }
-  .cover-label {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    color: #888;
+  .cover-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--ink-soft);
     text-transform: uppercase;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
-  .cover h1 {
-    font-size: 42px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    line-height: 1.2;
-    margin-bottom: 12px;
+  .cover-title {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
   }
-  .cover h1 span {
+  .cover-title span {
     display: block;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
-    color: #aaa;
-    letter-spacing: 0.15em;
-    margin-top: 8px;
+    color: #888;
+    letter-spacing: 0.12em;
+    margin-top: 10px;
   }
-  .cover-meta {
-    margin-top: 36px;
-    font-size: 12px;
-    color: #666;
-    border-top: 1px solid #222;
+  .cover-note {
+    margin-top: 32px;
     padding-top: 20px;
+    border-top: 1px solid #222;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.8;
   }
 
-  /* ── Layout ── */
+  /* ── Page Flow Banner ── */
+  .flow-banner {
+    background: #1a1a1a;
+    padding: 40px 64px;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .flow-step {
+    flex: 1;
+    padding: 20px 24px;
+    border-right: 1px solid #333;
+    position: relative;
+  }
+  .flow-step:last-child { border-right: none; }
+  .flow-step.active {
+    background: rgba(184, 146, 42, 0.12);
+    border: 1px solid var(--gold);
+  }
+  .flow-page {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .flow-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ccc;
+    margin-bottom: 8px;
+  }
+  .flow-step.active .flow-label { color: var(--gold); }
+  .flow-state {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .flow-step.active .flow-state { color: #aaa; }
+  .flow-arrow {
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #333;
+    z-index: 1;
+  }
+
+  /* ── Container ── */
   .container {
-    max-width: 1100px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 64px;
   }
 
   /* ── Section ── */
   .section {
-    padding: 60px 0;
-    border-bottom: 1px solid #e0ddd6;
+    padding: 56px 0;
+    border-bottom: 1px solid var(--line);
   }
   .section:last-child { border-bottom: none; }
 
-  .section-header {
+  .sec-hd {
     display: flex;
     align-items: baseline;
-    gap: 16px;
-    margin-bottom: 36px;
+    gap: 20px;
+    margin-bottom: 32px;
   }
-  .section-num {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: #999;
+  .sec-num {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--ink-soft);
     text-transform: uppercase;
     flex-shrink: 0;
+    padding-top: 3px;
   }
-  .section-title {
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-
-  /* ── Table ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-  th {
-    background: #1a1a1a;
-    color: #fff;
-    padding: 10px 16px;
-    text-align: left;
-    font-weight: 500;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-  }
-  td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #e8e5de;
-    vertical-align: top;
-  }
-  tr:nth-child(even) td { background: #faf9f6; }
-  tr:last-child td { border-bottom: none; }
-
-  /* ── Insight Box ── */
-  .insight {
-    background: #1a1a1a;
-    color: #fff;
-    padding: 20px 24px;
-    margin-top: 24px;
-    border-left: 4px solid #c8a96e;
-  }
-  .insight strong { color: #c8a96e; font-size: 11px; letter-spacing: 0.15em; display: block; margin-bottom: 6px; }
-  .insight p { font-size: 14px; line-height: 1.8; color: #ccc; }
-
-  /* ── Ad Card ── */
-  .ad-section {
-    padding: 64px 0;
-    border-bottom: 1px solid #e0ddd6;
-  }
-  .ad-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid currentColor;
-  }
-  .ad-badge {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    font-weight: 700;
-    padding: 5px 14px;
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-  .ad-title {
+  .sec-title {
     font-size: 20px;
     font-weight: 700;
   }
-  .ad-sub {
-    font-size: 13px;
-    color: #888;
-    margin-top: 2px;
-  }
 
-  /* カラー: 認知度3 */
-  .color-3 { color: #c0453a; border-color: #c0453a; }
-  .badge-3 { background: #c0453a; color: #fff; }
-
-  /* カラー: 認知度4 */
-  .color-4 { color: #2957a4; border-color: #2957a4; }
-  .badge-4 { background: #2957a4; color: #fff; }
-
-  /* カラー: バンジー */
-  .color-b { color: #d66020; border-color: #d66020; }
-  .badge-b { background: #d66020; color: #fff; }
-
-  /* カラー: SNS */
-  .color-s { color: #5040a0; border-color: #5040a0; }
-  .badge-s { background: #5040a0; color: #fff; }
-
-  /* ── Ad Layout ── */
-  .ad-layout {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-  .ad-image {
-    position: sticky;
-    top: 20px;
-  }
-  .ad-image img {
-    width: 100%;
-    display: block;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-  }
-  .ad-image-label {
+  /* ── Tables ── */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    background: var(--ink);
+    color: var(--white);
+    padding: 10px 16px;
+    text-align: left;
     font-size: 11px;
-    color: #999;
-    text-align: center;
-    margin-top: 8px;
-    letter-spacing: 0.1em;
-  }
-
-  .ad-body { }
-
-  /* ── Sub Sections ── */
-  .sub-section { margin-bottom: 36px; }
-  .sub-title {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 12px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #e0ddd6;
-  }
-
-  /* ── Mind State ── */
-  .mind-list { list-style: none; }
-  .mind-list li {
-    font-size: 14px;
-    padding: 8px 0 8px 20px;
-    position: relative;
-    border-bottom: 1px solid #f0ede6;
-    color: #444;
-  }
-  .mind-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: #bbb;
-    font-size: 12px;
-  }
-
-  /* ── Copy Table ── */
-  .copy-table td:first-child {
     font-weight: 600;
-    font-size: 12px;
-    color: #555;
-    width: 120px;
-    white-space: nowrap;
+    letter-spacing: 0.06em;
   }
-  .copy-table td:last-child {
-    font-size: 14px;
-    color: #222;
+  td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
   }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
 
-  /* ── Point Cards ── */
-  .point-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+  /* ── Callout ── */
+  .callout {
+    background: var(--ink);
+    color: var(--white);
+    padding: 22px 28px;
+    margin-top: 24px;
+    border-left: 4px solid var(--gold);
   }
-  .point-card {
-    background: #fff;
-    border: 1px solid #e0ddd6;
-    padding: 16px;
-    text-align: center;
-  }
-  .point-num {
+  .callout strong {
+    display: block;
     font-size: 10px;
     letter-spacing: 0.2em;
-    color: #bbb;
-    margin-bottom: 6px;
-  }
-  .point-label {
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .point-body {
-    font-size: 12px;
-    color: #666;
-    line-height: 1.6;
-  }
-
-  /* ── CTA Box ── */
-  .cta-box {
-    background: #faf9f6;
-    border: 1px solid #e0ddd6;
-    padding: 20px 24px;
-  }
-  .cta-row {
-    display: flex;
-    gap: 8px;
-    font-size: 13px;
-    padding: 6px 0;
-    border-bottom: 1px solid #e8e5de;
-  }
-  .cta-row:last-child { border-bottom: none; }
-  .cta-label {
-    font-weight: 700;
-    color: #444;
-    flex-shrink: 0;
-    width: 120px;
-  }
-  .cta-value { color: #555; }
-
-  /* ── Strategy ── */
-  .strategy-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 36px;
-  }
-  .strategy-card {
-    background: #fff;
-    border: 1px solid #e0ddd6;
-    padding: 24px;
-  }
-  .strategy-card-label {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: #aaa;
+    color: var(--gold);
     text-transform: uppercase;
     margin-bottom: 8px;
   }
-  .strategy-card-body {
-    font-size: 14px;
-    font-weight: 600;
-    color: #222;
-    line-height: 1.6;
+  .callout p { font-size: 14px; color: #ccc; line-height: 1.85; }
+
+  /* ── Evidence Cards ── */
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .evidence-card {
+    background: var(--white);
+    padding: 32px 28px;
+  }
+  .ev-num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--line);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .ev-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    padding: 3px 10px;
+    border-radius: 1px;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .ev-tag.gold { background: #fef3d0; color: var(--gold); }
+  .ev-tag.blue { background: #dde8f8; color: var(--blue); }
+  .ev-tag.green { background: #d5f0e4; color: var(--green); }
+  .ev-headline {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .ev-sub { font-size: 13px; color: var(--ink-mid); line-height: 1.7; }
+  .ev-effect {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .ev-effect b { color: var(--ink); }
+
+  /* ── Desire Stack ── */
+  .desire-stack { display: flex; flex-direction: column; gap: 2px; }
+  .desire-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr;
+    background: var(--white);
+  }
+  .desire-row > div {
+    padding: 20px 20px;
+    border-right: 1px solid var(--line);
+  }
+  .desire-row > div:last-child { border-right: none; }
+  .desire-row.head > div {
+    background: var(--ink);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 12px 20px;
+  }
+  .desire-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+  }
+  .desire-core { font-size: 14px; font-weight: 700; }
+  .desire-reason { font-size: 13px; color: var(--ink-mid); line-height: 1.7; }
+
+  /* ── Recognition Level ── */
+  .level-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .level-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 24px;
+    opacity: 0.45;
+  }
+  .level-card.active {
+    opacity: 1;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px var(--gold);
+  }
+  .level-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .level-card.active .level-num { color: var(--gold); }
+  .level-def { font-size: 13px; color: var(--ink-mid); line-height: 1.7; }
+  .level-card.active .level-def { color: var(--ink); }
+  .level-badge {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    background: var(--gold);
+    color: var(--white);
   }
 
-  .approach-row {
-    display: grid;
-    grid-template-columns: 160px 1fr 1fr;
-    gap: 0;
-  }
-  .approach-row > div {
-    padding: 14px 16px;
-    font-size: 13px;
-    border-bottom: 1px solid #e8e5de;
-  }
-  .approach-head {
-    font-size: 11px;
-    letter-spacing: 0.1em;
+  /* ── Product Table ── */
+  .product-table td:first-child { font-weight: 600; }
+  .entry-row td { background: #fff8e8 !important; }
+  .entry-badge {
+    display: inline-block;
+    font-size: 10px;
     font-weight: 700;
-    color: #555;
-    background: #f5f4f0;
+    padding: 2px 8px;
+    background: var(--gold);
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-left: 8px;
   }
+
+  /* ── Creative Cards ── */
+  .creative-section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .creative-hd {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid currentColor;
+  }
+  .cr-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 5px 14px;
+    flex-shrink: 0;
+  }
+  .cr-meta { flex: 1; }
+  .cr-title { font-size: 18px; font-weight: 700; }
+  .cr-sub { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+
+  .fit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .fit-high { background: #d5f0e4; color: var(--green); }
+  .fit-mid  { background: #fef3d0; color: var(--gold); }
+  .fit-low  { background: #fde8e8; color: var(--red); }
+
+  /* color sets */
+  .c4 { color: var(--blue); border-color: var(--blue); }
+  .b4 { background: var(--blue); color: #fff; }
+  .c3 { color: var(--red); border-color: var(--red); }
+  .b3 { background: var(--red); color: #fff; }
+  .ca { color: var(--orange); border-color: var(--orange); }
+  .ba { background: var(--orange); color: #fff; }
+  .cb { color: var(--purple); border-color: var(--purple); }
+  .bb { background: var(--purple); color: #fff; }
+
+  .cr-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .cr-img { position: sticky; top: 16px; }
+  .cr-img img {
+    width: 100%;
+    display: block;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.16);
+  }
+  .cr-img-label {
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .cr-body {}
+  .sub-sec { margin-bottom: 32px; }
+  .sub-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 14px;
+  }
+
+  .copy-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .copy-row:last-child { border-bottom: none; }
+  .copy-key {
+    padding: 12px 16px 12px 0;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink-mid);
+    flex-shrink: 0;
+  }
+  .copy-val { padding: 12px 0; color: var(--ink); line-height: 1.75; }
+
+  .point-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .pt-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .pt-num { font-size: 10px; letter-spacing: 0.2em; color: #bbb; margin-bottom: 6px; }
+  .pt-label { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .pt-body { font-size: 12px; color: var(--ink-mid); line-height: 1.6; }
+
+  .note-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--ink-soft);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+
+  /* ── Summary ── */
+  .summary-bg {
+    background: var(--ink);
+    padding: 64px 0 80px;
+  }
+  .sum-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: #222;
+    border: 1px solid #222;
+    margin-bottom: 40px;
+  }
+  .sum-card {
+    background: #161616;
+    padding: 28px 24px;
+  }
+  .sum-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .sum-val { font-size: 14px; font-weight: 600; color: #ccc; line-height: 1.7; }
+  .sum-val.gold { color: var(--gold); font-size: 16px; }
 
   @media print {
-    .ad-image { position: static; }
-    .ad-layout { grid-template-columns: 240px 1fr; gap: 32px; }
-    .cover { padding: 60px 40px 40px; }
-    .cover h1 { font-size: 32px; }
+    .cr-img { position: static; }
+    .cr-layout { grid-template-columns: 200px 1fr; gap: 32px; }
   }
 </style>
 </head>
 <body>
 
-<!-- Cover -->
+<!-- ── Cover ── -->
 <div class="cover">
   <div class="container">
-    <div class="cover-label">Marketing Document</div>
-    <h1>
+    <div class="cover-eyebrow">Marketing Document — Revised</div>
+    <h1 class="cover-title">
       GRAVITATE OSAKA
-      <span>広告構成案</span>
+      <span>広告構成案（改訂版）</span>
     </h1>
-    <div class="cover-meta">
-      ベース資料：まとめ.docx　／　参照素材：認知度3用.png / 認知度4用.png / その他1.png / その他2.png
+    <div class="cover-note">
+      分析テキストをベースに再設計<br>
+      参照素材：認知度3用.png / 認知度4用.png / その他1.png / その他2.png
     </div>
   </div>
 </div>
 
-<!-- 1. ターゲット分析 -->
+<!-- ── Page Flow ── -->
+<div class="flow-banner">
+  <div class="container" style="display:flex; gap:0; padding:0 64px; width:100%; max-width:1080px; margin:0 auto;">
+    <div class="flow-step">
+      <div class="flow-page">P.1〜3</div>
+      <div class="flow-label">編集記事広告</div>
+      <div class="flow-state">施設・体験の説明。読者はGRAVITATEの概要を理解していく。</div>
+    </div>
+    <div class="flow-step active">
+      <div class="flow-page">P.4 ← 設計対象</div>
+      <div class="flow-label">純広告</div>
+      <div class="flow-state">施設を一度理解した後の状態。「知ったけれどまだ迷っている人」を行動に押す。</div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
+
+<!-- ── 1. ターゲット ── -->
 <div class="section">
-  <div class="section-header">
-    <div class="section-num">01</div>
-    <div class="section-title">ターゲット分析</div>
+  <div class="sec-hd">
+    <div class="sec-num">01</div>
+    <div class="sec-title">ターゲット分析</div>
   </div>
   <table>
-    <thead>
-      <tr><th>項目</th><th>内容</th></tr>
-    </thead>
+    <thead><tr><th>項目</th><th>内容</th></tr></thead>
     <tbody>
       <tr><td>エリア</td><td>大阪・北摂〜京阪神在住</td></tr>
-      <tr><td>年齢層</td><td>30〜49歳</td></tr>
-      <tr><td>関係性</td><td>夫婦・カップル</td></tr>
-      <tr><td>行動特性</td><td>休日に新しい日帰り先を探している。記憶に残る二人の時間を求めている</td></tr>
-      <tr><td>来場動機</td><td>ブリッジウォークを入口に来場する傾向</td></tr>
-      <tr><td>メディア特性</td><td>関西ウォーカー読者は女性優位・日帰り旅志向が強い</td></tr>
+      <tr><td>年齢層</td><td>30〜49歳 ／ 夫婦・カップル</td></tr>
+      <tr><td>情報行動</td><td>女性側が主導しやすい。クーポン・新名所・写真映え・ちょっとした非日常に反応</td></tr>
+      <tr><td>来場行動</td><td>まずブリッジウォーク（低ハードル）を入口に来場し、現地でアクティビティを広げる</td></tr>
+      <tr><td>現状課題</td><td>SNSでの認知は取れているが、来場・予約への転換が弱い</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 32px;">
+    <div class="sec-hd" style="margin-bottom:20px;">
+      <div class="sec-num">+</div>
+      <div class="sec-title" style="font-size:16px;">媒体特性（関西ウォーカー）</div>
+    </div>
+    <table>
+      <thead><tr><th>特性</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>読者属性</td><td>女性優位・大阪〜兵庫〜京都中心・既婚・車保有・日帰り旅志向</td></tr>
+        <tr><td>利用行動</td><td>「休日の行き先を考える」「クーポンを見て比較する」「手元に置いて何度か見る」</td></tr>
+        <tr><td>郊外レジャー相性</td><td>高い</td></tr>
+      </tbody>
+    </table>
+    <div class="callout" style="margin-top:16px;">
+      <strong>媒体方針</strong>
+      <p>勢いだけの絶叫訴求より、<b>"二人の休日の行き先決定"</b>に寄せた方が媒体に合う。雑誌広告でやるべきことは「もっとバズらせる」ではなく、<b>予約行動へ変えること</b>。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── 2. 欲求 ── -->
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">02</div>
+    <div class="sec-title">欲求の設計</div>
+  </div>
+
+  <div class="callout" style="margin-bottom:28px; border-left-color: #444;">
+    <strong>欲求の核</strong>
+    <p>「二人の休日を、ただ消費するのではなく、相手に喜ばれる少し特別な記憶に変えたい」<br>
+    表面は「おでかけ」「新名所」「クーポン」。深層では <b>「魅力的でありたい」「相手との関係を良くしたい」「人より少し先の場所を知っていたい」</b> が動いている。</p>
+  </div>
+
+  <div class="desire-stack">
+    <div class="desire-row head">
+      <div>優先度</div>
+      <div>欲求</div>
+      <div>根拠・補足</div>
+    </div>
+    <div class="desire-row">
+      <div class="desire-label">第一欲求</div>
+      <div class="desire-core">魅力的でいたい ／<br>相手にとって良い時間を<br>作れる人でいたい</div>
+      <div class="desire-reason">読者は「絶叫そのものを買う」より、「この場所を選んだ自分はセンスがいい」「この休日を用意した自分は相手を喜ばせられる」という自己像を買いやすい</div>
+    </div>
+    <div class="desire-row">
+      <div class="desire-label">第二欲求</div>
+      <div class="desire-core">ありきたりの休日で<br>終わりたくない ／<br>ハズしたくない</div>
+      <div class="desire-reason">読者は比較・検討型。「怖い」「高い」だけでなく「次の休日候補として失敗しにくい理由」を与える必要がある</div>
+    </div>
+    <div class="desire-row">
+      <div class="desire-label">第三欲求</div>
+      <div class="desire-core">話題の新名所を<br>先に押さえたい ／<br>少し優位でいたい</div>
+      <div class="desire-reason">「まだ行ってないの？」「そこ知ってるんだ」という社会的優位感に変換できる。「新名所」志向の読者と相性が良い</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 3. 認知度 ── -->
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">03</div>
+    <div class="sec-title">認知度の設定</div>
+  </div>
+
+  <div class="level-grid">
+    <div class="level-card">
+      <div class="level-num">認知度2</div>
+      <div class="level-def">問題は認知しているが、その解決策と商品が結びついていない段階</div>
+    </div>
+    <div class="level-card">
+      <div class="level-num">認知度3</div>
+      <div class="level-def">商品の効用を完全には認知していないが、商品自体や欲求との結びつきはある程度知られている段階</div>
+    </div>
+    <div class="level-card active">
+      <div class="level-num">認知度4</div>
+      <div class="level-def">商品を知っているが、それが自分に合うかどうかがわからない段階</div>
+      <div class="level-badge">4ページ目はここ</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>純広告（4ページ目）の位置づけ</strong>
+    <p>前3ページの記事広告を経た読者は「GRAVITATE OSAKAとは何か」を理解済み。したがって4ページ目は <b>施設説明の繰り返しではなく、「知ったけれどまだ迷っている人」を押す広告</b>にする。<br>
+    認知度4に必要なこと：<b>解決策の特別な点の提示 ＋ 効果の証明</b><br>
+    やること：<b>欲求の正当化 ＋ 行動の後押し</b></p>
+  </div>
+</div>
+
+<!-- ── 4. 3証拠 ── -->
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">04</div>
+    <div class="sec-title">純広告の設計方針 ／ 訴求の3証拠</div>
+  </div>
+
+  <p style="font-size:14px; color:var(--ink-mid); margin-bottom:28px; line-height:1.85;">
+    ブランドをしっかり見せた上で「なぜ次の休日に、ここを選ぶと外さないのか」を示す。
+    物理的な構造説明そのものではなく、<strong>欲求を補強する材料として数字を使う</strong>。
+  </p>
+
+  <div class="evidence-grid">
+    <div class="evidence-card">
+      <div class="ev-num">01</div>
+      <div><span class="ev-tag gold">新名所性の証明</span></div>
+      <div class="ev-headline">日本最長<br>420m</div>
+      <div class="ev-sub">通路幅約1.4m × 地上高55m。「先に押さえた」感と話題性を一言で証明する数字。</div>
+      <div class="ev-effect"><b>効く欲求：</b>第三欲求（優越感）＋ 第二欲求（ハズさない根拠）</div>
+    </div>
+    <div class="evidence-card">
+      <div class="ev-num">02</div>
+      <div><span class="ev-tag blue">話題性・社会的証明</span></div>
+      <div class="ev-headline">TikTok<br>59,300F<br><span style="font-size:16px; font-weight:400;">／ 860万再生</span></div>
+      <div class="ev-sub">カップル動画が平均860万再生。「外さない場所」の安心感と「知る人ぞ知る感」を同時に訴求。</div>
+      <div class="ev-effect"><b>効く欲求：</b>第一欲求（センスある自分）＋ 第三欲求（社会的優位感）</div>
+    </div>
+    <div class="evidence-card">
+      <div class="ev-num">03</div>
+      <div><span class="ev-tag green">行動ハードルを下げる</span></div>
+      <div class="ev-headline">クーポン<br>QR</div>
+      <div class="ev-sub">150円割引クーポン ＆ ショップ100円券。「今すぐ動ける理由」を与えて予約行動へ転換。</div>
+      <div class="ev-effect"><b>効く欲求：</b>全欲求（背中を押す・摩擦を除去する）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 5. 入口商品 ── -->
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-num">05</div>
+    <div class="sec-title">入口商品の設定</div>
+  </div>
+
+  <p style="font-size:14px; color:var(--ink-mid); margin-bottom:24px; line-height:1.85;">
+    雑誌の純広告で最初から高単価の絶叫体験を売り切るより、<strong>「まずは橋を渡る」という低ハードルの入口を売り、現地やLPでアップセルさせる方が合理的</strong>。
+  </p>
+
+  <table class="product-table">
+    <thead><tr><th>アクティビティ</th><th>料金</th><th>役割</th></tr></thead>
+    <tbody>
+      <tr class="entry-row">
+        <td>ブリッジウォーク <span class="entry-badge">純広告 メイン訴求</span></td>
+        <td>1,650円</td>
+        <td>低ハードルの入口。来場を決めさせる商品</td>
+      </tr>
+      <tr><td>ブリッジクライム</td><td>5,500円</td><td>現地・LP アップセル</td></tr>
+      <tr><td>バンジージャンプ</td><td>12,000円〜</td><td>現地・LP アップセル</td></tr>
+      <tr><td>スイング</td><td>—</td><td>現地・LP アップセル</td></tr>
     </tbody>
   </table>
 </div>
 
-<!-- 2. メイン欲求 -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-num">02</div>
-    <div class="section-title">メイン欲求の整理</div>
-  </div>
-  <table>
-    <thead>
-      <tr><th>優先度</th><th>欲求</th><th>説明</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>第一欲求</td>
-        <td>魅力的でいたい / 相手にとって良い時間を作れる人でいたい</td>
-        <td>関係性・相互承認の欲求</td>
-      </tr>
-      <tr>
-        <td>第二欲求</td>
-        <td>ありきたりの休日で終わりたくない</td>
-        <td>日常からの逸脱・特別感</td>
-      </tr>
-      <tr>
-        <td>第三欲求</td>
-        <td>話題の新名所を先に押さえたい</td>
-        <td>優越感・先行者意識</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="insight">
-    <strong>核心インサイト</strong>
-    <p>ターゲットが求めているのは「スリルそのもの」ではなく「二人の関係を特別な体験で更新したい」という感情。記憶・関係性・優越感が訴求軸。</p>
-  </div>
-</div>
-
-<!-- 3. 認知度の定義 -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-num">03</div>
-    <div class="section-title">認知度の定義</div>
-  </div>
-  <table>
-    <thead>
-      <tr><th>段階</th><th>定義</th><th>広告設計の狙い</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="font-weight:700; color:#c0453a;">認知度3</td>
-        <td>商品の効用を完全には認知していないが、商品自体や欲求との結びつきはある程度知られている</td>
-        <td>「知っている」を「行く理由」に転換する感情訴求</td>
-      </tr>
-      <tr>
-        <td style="font-weight:700; color:#2957a4;">認知度4</td>
-        <td>商品を知っているが、それが自分に合うかどうかがわからない</td>
-        <td>「自分ごと化」させ、背中を押す</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="insight">
-    <strong>現状課題</strong>
-    <p>SNSでの認知は既にあるが、来場・予約への転換が弱い。「見たことがある」を「行く理由」に変える設計が必要。</p>
-  </div>
-</div>
 </div><!-- /container -->
 
-<!-- ━━━ 4-1. 認知度3 ━━━ -->
+<!-- ━━━ 既存クリエイティブ評価 ━━━ -->
+
+<!-- 認知度4用 ★主軸 -->
 <div class="container">
-<div class="ad-section">
-  <div class="ad-header color-3">
-    <span class="ad-badge badge-3">認知度3向け</span>
-    <div>
-      <div class="ad-title">カップル感情訴求型</div>
-      <div class="ad-sub">参照素材：認知度3用.png</div>
+<div class="creative-section">
+  <div class="creative-hd c4">
+    <span class="cr-badge b4">認知度4向け</span>
+    <div class="cr-meta">
+      <div class="cr-title">ブランド転換訴求型</div>
+      <div class="cr-sub">参照素材：認知度4用.png</div>
     </div>
+    <span class="fit-badge fit-high">設計方針との適合：高</span>
   </div>
 
-  <div class="ad-layout">
-    <div class="ad-image">
-      <img src="認知度3用.png" alt="認知度3向け広告">
-      <div class="ad-image-label">認知度3用.png</div>
-    </div>
-
-    <div class="ad-body">
-
-      <div class="sub-section">
-        <div class="sub-title">ターゲット心理状態</div>
-        <ul class="mind-list">
-          <li>GRAVITATEの存在・GODA BRIDGEの概要は知っている</li>
-          <li>「でも自分たちが行くべき場所かどうか」がまだ結びついていない</li>
-          <li>「少し特別な休日を過ごしたい」という潜在欲求がある</li>
-        </ul>
-      </div>
-
-      <div class="sub-section">
-        <div class="sub-title">コピー</div>
-        <table class="copy-table">
-          <tbody>
-            <tr><td>ヘッドライン</td><td>ありきたりなデートで終わらせたくない二人へ。</td></tr>
-            <tr><td>リード</td><td>ただ出かけるだけじゃ、物足りない。でも、遠くへ行くするのも違う。そんな二人にちょうどいい。「少し特別な休日」が大阪のすぐ近くにあります。</td></tr>
-            <tr><td>サブコピー</td><td>日本一長い吊橋を、二人で渡る。</td></tr>
-            <tr><td>ボディ</td><td>景色に圧倒され、少し怖じ怖じして、思わず笑う、その空気感が、いつもと違う。GRAVITATE OSAKAは、あとで思い出せる「特別な休日」に変えてくれます。写真も、景色も、気持ちも、ぎっと残る。次の休日の、最高の選択肢にしませんか？</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="sub-section">
-        <div class="sub-title">訴求ポイント</div>
-        <div class="point-cards">
-          <div class="point-card">
-            <div class="point-num">POINT 01</div>
-            <div class="point-label">日本最長</div>
-            <div class="point-body">420m（歩くほどに広がる、圧巻の景色）</div>
-          </div>
-          <div class="point-card">
-            <div class="point-num">POINT 02</div>
-            <div class="point-label">高さ</div>
-            <div class="point-body">55m（スリルと絶景が気持ちいい！）</div>
-          </div>
-          <div class="point-card">
-            <div class="point-num">POINT 03</div>
-            <div class="point-label">アクセス</div>
-            <div class="point-body">大阪から約1時間（日帰りできる、ちょうどいい距離）</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub-section">
-        <div class="sub-title">CTA</div>
-        <div class="cta-box">
-          <div class="cta-row"><span class="cta-label">クーポン</span><span class="cta-value">150円割引クーポン ＆ ショップ100円券</span></div>
-          <div class="cta-row"><span class="cta-label">掲載媒体</span><span class="cta-value">読者サービス（QRコードより）</span></div>
-          <div class="cta-row"><span class="cta-label">アクセス</span><span class="cta-value">JR茨木駅から / 名神高速道路（茨木IC方面）</span></div>
-          <div class="cta-row"><span class="cta-label">駐車場</span><span class="cta-value">有料あり</span></div>
-          <div class="cta-row"><span class="cta-label">カフェ・フォトスポット</span><span class="cta-value">多数</span></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ━━━ 4-2. 認知度4 ━━━ -->
-<div class="container">
-<div class="ad-section">
-  <div class="ad-header color-4">
-    <span class="ad-badge badge-4">認知度4向け</span>
-    <div>
-      <div class="ad-title">ブランド転換訴求型</div>
-      <div class="ad-sub">参照素材：認知度4用.png</div>
-    </div>
-  </div>
-
-  <div class="ad-layout">
-    <div class="ad-image">
+  <div class="cr-layout">
+    <div class="cr-img">
       <img src="認知度4用.png" alt="認知度4向け広告">
-      <div class="ad-image-label">認知度4用.png</div>
+      <div class="cr-img-label">認知度4用.png</div>
     </div>
+    <div class="cr-body">
 
-    <div class="ad-body">
-
-      <div class="sub-section">
-        <div class="sub-title">ターゲット心理状態</div>
-        <ul class="mind-list">
-          <li>GRAVITATE OSAKAをある程度知っている（SNS・口コミ経由）</li>
-          <li>しかし「自分が行く場所」という実感が薄い</li>
-          <li>「見たことはある、でも行ってない」段階</li>
-        </ul>
-      </div>
-
-      <div class="sub-section">
-        <div class="sub-title">コピー</div>
-        <table class="copy-table">
+      <div class="sub-sec">
+        <div class="sub-label">設計方針との整合チェック</div>
+        <table style="font-size:13px;">
           <tbody>
-            <tr><td>サブヘッド</td><td>見て知るだけでは、もったいない。</td></tr>
-            <tr><td>メインヘッドライン</td><td>GRAVITATE OSAKA 次のデート先ではなく、次の思い出先。</td></tr>
-            <tr><td>ボディ</td><td>選って、笑って、少し驚いて。帰るころにはちゃんと記憶に残る。その一日を、大阪のすぐ近くで。</td></tr>
+            <tr><td style="width:200px;">「見て知るだけでは、もったいない。」</td><td>認知済みの読者への後押し ✓</td></tr>
+            <tr><td>「次のデート先ではなく、次の思い出先。」</td><td>第一欲求への直接訴求 ✓</td></tr>
+            <tr><td>TikTokフォロワー数・再生数の数値提示</td><td>社会的証明（証拠②） ✓</td></tr>
+            <tr><td>クーポンQRの設置</td><td>行動ハードル低減（証拠③） ✓</td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="sub-section">
-        <div class="sub-title">訴求ポイント</div>
+      <div class="sub-sec">
+        <div class="sub-label">コピー</div>
+        <div class="copy-row"><span class="copy-key">サブヘッド</span><span class="copy-val">見て知るだけでは、もったいない。</span></div>
+        <div class="copy-row"><span class="copy-key">メインヘッドライン</span><span class="copy-val">GRAVITATE OSAKA 次のデート先ではなく、次の思い出先。</span></div>
+        <div class="copy-row"><span class="copy-key">ボディ</span><span class="copy-val">選って、笑って、少し驚いて。帰るころにはちゃんと記憶に残る。その一日を、大阪のすぐ近くで。</span></div>
+      </div>
+
+      <div class="sub-sec">
+        <div class="sub-label">訴求ポイント</div>
         <div class="point-cards">
-          <div class="point-card">
-            <div class="point-num">POINT 01</div>
-            <div class="point-label">日本最長</div>
-            <div class="point-body">420m（通路幅約1.4m×高さ55mの吊橋でスリル満点！）</div>
-          </div>
-          <div class="point-card">
-            <div class="point-num">POINT 02</div>
-            <div class="point-label">アクセス</div>
-            <div class="point-body">大阪から約1時間（ちょうどいい距離）</div>
-          </div>
-          <div class="point-card">
-            <div class="point-num">POINT 03</div>
-            <div class="point-label">話題の絶景スポット</div>
-            <div class="point-body">TikTokフォロワー59,300人（カフェ動画平均800万再生）</div>
-          </div>
+          <div class="pt-card"><div class="pt-num">POINT 01</div><div class="pt-label">日本最長</div><div class="pt-body">420m（高さ55m・スリル満点）</div></div>
+          <div class="pt-card"><div class="pt-num">POINT 02</div><div class="pt-label">アクセス</div><div class="pt-body">大阪から約1時間</div></div>
+          <div class="pt-card"><div class="pt-num">POINT 03</div><div class="pt-label">話題の絶景スポット</div><div class="pt-body">TikTok 59,300人 ／ カフェ動画平均800万再生</div></div>
         </div>
       </div>
 
-      <div class="sub-section">
-        <div class="sub-title">アクティビティ料金</div>
-        <table>
-          <thead><tr><th>アクティビティ</th><th>料金</th></tr></thead>
-          <tbody>
-            <tr><td>ブリッジウォーク</td><td>1,650円</td></tr>
-            <tr><td>ブリッジクライム</td><td>5,500円</td></tr>
-            <tr><td>バンジージャンプ</td><td>12,000円〜</td></tr>
-            <tr><td>スイング（タンデムスポングなど）</td><td>記載なし</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="sub-section">
-        <div class="sub-title">CTA</div>
-        <div class="cta-box">
-          <div class="cta-row"><span class="cta-label">クーポン</span><span class="cta-value">150円割引クーポン ＆ ショップ100円券</span></div>
-          <div class="cta-row"><span class="cta-label">クーポン訴求文</span><span class="cta-value">クーポンを使って、次の思い出先へ！</span></div>
-          <div class="cta-row"><span class="cta-label">SNS</span><span class="cta-value">公式Instagram / 公式TikTok（QRコードあり）</span></div>
-        </div>
+      <div class="sub-sec">
+        <div class="sub-label">CTA</div>
+        <div class="note-card">150円割引クーポン ＆ ショップ100円券 ／ クーポンを使って、次の思い出先へ！ ／ 公式SNS QRコード</div>
       </div>
 
     </div>
@@ -611,62 +732,44 @@
 </div>
 </div>
 
-<!-- ━━━ 4-3. バンジー特化 ━━━ -->
+<!-- 認知度3用 -->
 <div class="container">
-<div class="ad-section">
-  <div class="ad-header color-b">
-    <span class="ad-badge badge-b">その他A</span>
-    <div>
-      <div class="ad-title">バンジー特化型</div>
-      <div class="ad-sub">参照素材：その他1.png　／　商品別訴求の単独広告。バンジーへの直接的な欲求がある層（認知度3〜4のバンジー興味層）向け。</div>
+<div class="creative-section">
+  <div class="creative-hd c3">
+    <span class="cr-badge b3">認知度3向け</span>
+    <div class="cr-meta">
+      <div class="cr-title">カップル感情訴求型</div>
+      <div class="cr-sub">参照素材：認知度3用.png</div>
     </div>
+    <span class="fit-badge fit-mid">適合：中（編集記事前の接触向け）</span>
   </div>
 
-  <div class="ad-layout">
-    <div class="ad-image">
-      <img src="その他1.png" alt="バンジー特化広告">
-      <div class="ad-image-label">その他1.png</div>
+  <div class="cr-layout">
+    <div class="cr-img">
+      <img src="認知度3用.png" alt="認知度3向け広告">
+      <div class="cr-img-label">認知度3用.png</div>
     </div>
+    <div class="cr-body">
 
-    <div class="ad-body">
-
-      <div class="sub-section">
-        <div class="sub-title">コピー</div>
-        <table class="copy-table">
-          <tbody>
-            <tr><td>バナー</td><td>関西で味わえる 本格バンジー体験！大阪・茨木の大自然で、心を解き放て！</td></tr>
-            <tr><td>メインヘッドライン</td><td>地上60mからの解放感 飛んだ人にしかわからない！</td></tr>
-            <tr><td>ボディ</td><td>日常を飛び越えろ。一歩踏み出せば、そこは、別世界。目の前に広がるのは、家常的な日常の景色と、どこまでも高く。その瞬間、すべての不安も、ストレスも、まとめてリセット！忘れられない非日常体験が、あなたを待っています。</td></tr>
-          </tbody>
-        </table>
+      <div class="sub-sec">
+        <div class="sub-label">評価</div>
+        <div class="note-card">欲求訴求の方向性は正しい。ただし「施設を知らない人への説明」に近い構成のため、4ページ目の読者（既知）には冗長になる。感情導入部としては機能するが、行動転換の後押し要素（数値証拠・クーポン訴求）が相対的に弱い。</div>
       </div>
 
-      <div class="sub-section">
-        <div class="sub-title">訴求ポイント</div>
-        <table>
-          <thead><tr><th>項目</th><th>内容</th></tr></thead>
-          <tbody>
-            <tr><td>スペック</td><td>バンジージャンプ 関西最大級 高さ60m</td></tr>
-            <tr><td>特長1</td><td>真正60mの本格バンジー</td></tr>
-            <tr><td>特長2</td><td>複数ロケーション 絶景の感い出</td></tr>
-            <tr><td>特長3</td><td>初心者でも安心のサポート体制</td></tr>
-          </tbody>
-        </table>
+      <div class="sub-sec">
+        <div class="sub-label">コピー</div>
+        <div class="copy-row"><span class="copy-key">ヘッドライン</span><span class="copy-val">ありきたりなデートで終わらせたくない二人へ。</span></div>
+        <div class="copy-row"><span class="copy-key">リード</span><span class="copy-val">ただ出かけるだけじゃ、物足りない。でも、遠くへ行くするのも違う。そんな二人にちょうどいい。「少し特別な休日」が大阪のすぐ近くにあります。</span></div>
+        <div class="copy-row"><span class="copy-key">サブコピー</span><span class="copy-val">日本一長い吊橋を、二人で渡る。</span></div>
+        <div class="copy-row"><span class="copy-key">ボディ</span><span class="copy-val">景色に圧倒され、少し怖じ怖じして、思わず笑う、その空気感が、いつもと違う。GRAVITATE OSAKAは、あとで思い出せる「特別な休日」に変えてくれます。写真も、景色も、気持ちも、ぎっと残る。</span></div>
       </div>
 
-      <div class="sub-section">
-        <div class="sub-title">施設情報</div>
-        <div class="cta-box">
-          <div class="cta-row"><span class="cta-label">所在地</span><span class="cta-value">〒567-0028 大阪府茨木市大学生球53-1（ダムパークいばきた内）</span></div>
-          <div class="cta-row"><span class="cta-label">TEL</span><span class="cta-value">072-648-3245（受付時間 9:00〜17:00）</span></div>
-          <div class="cta-row"><span class="cta-label">SNS</span><span class="cta-value">公式Instagram / 公式TikTok</span></div>
-        </div>
-      </div>
-
-      <div class="sub-section">
-        <div class="sub-title">CTA</div>
-        <div class="cta-box">
-          <div class="cta-row"><span class="cta-label">クーポン</span><span class="cta-value">150円割引クーポン ＆ ショップ100円券</span></div>
+      <div class="sub-sec">
+        <div class="sub-label">訴求ポイント</div>
+        <div class="point-cards">
+          <div class="pt-card"><div class="pt-num">POINT 01</div><div class="pt-label">日本最長</div><div class="pt-body">420m（圧巻の景色）</div></div>
+          <div class="pt-card"><div class="pt-num">POINT 02</div><div class="pt-label">高さ</div><div class="pt-body">55m（スリルと絶景）</div></div>
+          <div class="pt-card"><div class="pt-num">POINT 03</div><div class="pt-label">アクセス</div><div class="pt-body">大阪から約1時間</div></div>
         </div>
       </div>
 
@@ -675,123 +778,134 @@
 </div>
 </div>
 
-<!-- ━━━ 4-4. SNS認知活用 ━━━ -->
+<!-- その他A バンジー -->
 <div class="container">
-<div class="ad-section">
-  <div class="ad-header color-s">
-    <span class="ad-badge badge-s">その他B</span>
-    <div>
-      <div class="ad-title">SNS認知活用型</div>
-      <div class="ad-sub">参照素材：その他2.png　／　TikTok等SNSでGODA BRIDGEの動画を見たことがある層（認知度4に最も近い）を行動へ引き込む広告。「見たことがある」→「行く理由」転換に直接対応。</div>
+<div class="creative-section">
+  <div class="creative-hd ca">
+    <span class="cr-badge ba">その他A</span>
+    <div class="cr-meta">
+      <div class="cr-title">バンジー特化型</div>
+      <div class="cr-sub">参照素材：その他1.png</div>
     </div>
+    <span class="fit-badge fit-low">適合：低（媒体ターゲットとのズレあり）</span>
   </div>
 
-  <div class="ad-layout">
-    <div class="ad-image">
+  <div class="cr-layout">
+    <div class="cr-img">
+      <img src="その他1.png" alt="バンジー特化型広告">
+      <div class="cr-img-label">その他1.png</div>
+    </div>
+    <div class="cr-body">
+
+      <div class="sub-sec">
+        <div class="sub-label">評価</div>
+        <div class="note-card">「地上60mからの解放感」という絶叫訴求は、関西ウォーカーの読者層（比較・検討型カップル）には刺さりにくい。バンジーそのものへの強い欲求がある層向けの<b>別媒体・別チャネル運用が適切</b>。</div>
+      </div>
+
+      <div class="sub-sec">
+        <div class="sub-label">コピー</div>
+        <div class="copy-row"><span class="copy-key">バナー</span><span class="copy-val">関西で味わえる 本格バンジー体験！大阪・茨木の大自然で、心を解き放て！</span></div>
+        <div class="copy-row"><span class="copy-key">メインヘッドライン</span><span class="copy-val">地上60mからの解放感 飛んだ人にしかわからない！</span></div>
+        <div class="copy-row"><span class="copy-key">ボディ</span><span class="copy-val">日常を飛び越えろ。一歩踏み出せば、そこは、別世界。その瞬間、すべての不安も、ストレスも、まとめてリセット！忘れられない非日常体験が、あなたを待っています。</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- その他B SNS -->
+<div class="container">
+<div class="creative-section">
+  <div class="creative-hd cb">
+    <span class="cr-badge bb">その他B</span>
+    <div class="cr-meta">
+      <div class="cr-title">SNS認知活用型</div>
+      <div class="cr-sub">参照素材：その他2.png</div>
+    </div>
+    <span class="fit-badge fit-mid">適合：中（デジタル向き）</span>
+  </div>
+
+  <div class="cr-layout">
+    <div class="cr-img">
       <img src="その他2.png" alt="SNS認知活用型広告">
-      <div class="ad-image-label">その他2.png</div>
+      <div class="cr-img-label">その他2.png</div>
     </div>
+    <div class="cr-body">
 
-    <div class="ad-body">
-
-      <div class="sub-section">
-        <div class="sub-title">コピー</div>
-        <table class="copy-table">
-          <tbody>
-            <tr><td>メインヘッドライン</td><td>この動画、もう見た？ あの場所に、まだ行ってないの？</td></tr>
-            <tr><td>サブコピー</td><td>TikTokでバズってる、日本最長の吊橋アクティビティ！</td></tr>
-            <tr><td>キャッチ</td><td>見てるだけじゃ、もったいない。</td></tr>
-          </tbody>
-        </table>
+      <div class="sub-sec">
+        <div class="sub-label">評価</div>
+        <div class="note-card">「この動画、もう見た？」というSNS接触者への呼びかけはデジタル広告（リターゲティング等）では有効。雑誌媒体では「まだ動画を見ていない読者」もいるため、前提の置き方に注意が必要。<b>デジタル施策との連動前提で使うべきクリエイティブ</b>。</div>
       </div>
 
-      <div class="sub-section">
-        <div class="sub-title">施設スペック</div>
-        <table>
-          <thead><tr><th>項目</th><th>内容</th></tr></thead>
-          <tbody>
-            <tr><td>名称</td><td>GODA BRIDGE（ゴダブリッジ）/ 日本最長の歩行者用吊橋</td></tr>
-            <tr><td>全長</td><td>420m</td></tr>
-            <tr><td>地上高</td><td>55m</td></tr>
-            <tr><td>アクセス</td><td>大阪から約1時間</td></tr>
-          </tbody>
-        </table>
+      <div class="sub-sec">
+        <div class="sub-label">コピー</div>
+        <div class="copy-row"><span class="copy-key">メインヘッドライン</span><span class="copy-val">この動画、もう見た？ あの場所に、まだ行ってないの？</span></div>
+        <div class="copy-row"><span class="copy-key">サブコピー</span><span class="copy-val">TikTokでバズってる、日本最長の吊橋アクティビティ！</span></div>
+        <div class="copy-row"><span class="copy-key">キャッチ</span><span class="copy-val">見てるだけじゃ、もったいない。</span></div>
       </div>
 
-      <div class="sub-section">
-        <div class="sub-title">アクティビティ料金</div>
-        <table>
+      <div class="sub-sec">
+        <div class="sub-label">アクティビティ料金</div>
+        <table style="font-size:13px;">
           <thead><tr><th>アクティビティ</th><th>料金</th></tr></thead>
           <tbody>
             <tr><td>ブリッジウォーク</td><td>1,450円</td></tr>
             <tr><td>ブリッジクライム</td><td>5,500円</td></tr>
             <tr><td>バンジージャンプ</td><td>16,000円〜</td></tr>
-            <tr><td>スイング（タンデムスポングなど）</td><td>記載あり（料金不明）</td></tr>
+            <tr><td>スイング</td><td>記載あり（料金不明）</td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="sub-section">
-        <div class="sub-title">CTA</div>
-        <div class="cta-box">
-          <div class="cta-row"><span class="cta-label">行動訴求</span><span class="cta-value">今すぐ体験予約！公式サイトで簡単予約</span></div>
-          <div class="cta-row"><span class="cta-label">QRコード</span><span class="cta-value">あり</span></div>
-        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── Summary ── -->
+<div class="summary-bg">
+  <div class="container">
+    <div class="sec-hd" style="margin-bottom:36px;">
+      <div class="sec-num" style="color:#444;">総括</div>
+      <div class="sec-title" style="color:#fff;">純広告（4ページ目）の正解</div>
+    </div>
+
+    <div class="sum-grid">
+      <div class="sum-card">
+        <div class="sum-label">認知度設定</div>
+        <div class="sum-val gold">認知度4</div>
       </div>
-
+      <div class="sum-card">
+        <div class="sum-label">やること</div>
+        <div class="sum-val">欲求の正当化 ＋<br>行動の後押し</div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-label">やらないこと</div>
+        <div class="sum-val">施設説明の繰り返し</div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-label">証拠①</div>
+        <div class="sum-val">日本最長 420m<br><span style="font-size:12px; color:#555;">新名所性の証明</span></div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-label">証拠②</div>
+        <div class="sum-val">TikTok 59,300F ／ 860万再生<br><span style="font-size:12px; color:#555;">話題性・社会的証明</span></div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-label">証拠③</div>
+        <div class="sum-val">クーポン QR<br><span style="font-size:12px; color:#555;">行動ハードルを下げる</span></div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-label">入口商品</div>
+        <div class="sum-val">ブリッジウォーク（低ハードル）<br><span style="font-size:12px; color:#555;">高単価はLPで・現地でアップセル</span></div>
+      </div>
+      <div class="sum-card" style="grid-column: span 2;">
+        <div class="sum-label">最も適合する既存クリエイティブ</div>
+        <div class="sum-val gold">認知度4用.png（ブランド転換訴求型）</div>
+      </div>
     </div>
   </div>
-</div>
-</div>
-
-<!-- ━━━ 5. 総括 ━━━ -->
-<div style="background:#0d0d0d; padding: 64px 0 80px;">
-<div class="container">
-  <div class="section-header" style="margin-bottom:40px;">
-    <div class="section-num" style="color:#555;">05</div>
-    <div class="section-title" style="color:#fff;">総括・戦略方針</div>
-  </div>
-
-  <div class="strategy-grid">
-    <div class="strategy-card">
-      <div class="strategy-card-label">現状課題</div>
-      <div class="strategy-card-body">SNSでの認知は構築されているが、「知っている」が「行く」に転換されていない</div>
-    </div>
-    <div class="strategy-card">
-      <div class="strategy-card-label">広告設計の基本方針</div>
-      <div class="strategy-card-body">「見たことがある」を「行く理由」に変える</div>
-    </div>
-  </div>
-
-  <div style="color:#888; font-size:11px; letter-spacing:0.15em; margin-bottom:12px; text-transform:uppercase;">認知度別アプローチ</div>
-  <div style="background:#fff; overflow:hidden;">
-    <div class="approach-row">
-      <div class="approach-head">段階</div>
-      <div class="approach-head">アプローチ</div>
-      <div class="approach-head">感情軸</div>
-    </div>
-    <div class="approach-row">
-      <div style="font-weight:700; color:#c0453a;">認知度3</div>
-      <div>欲求との結びつけ（感情訴求）</div>
-      <div>「ありきたりの休日から脱したい」共感</div>
-    </div>
-    <div class="approach-row">
-      <div style="font-weight:700; color:#2957a4;">認知度4</div>
-      <div>自分ごと化・背中を押す</div>
-      <div>「次の思い出先」への変換</div>
-    </div>
-    <div class="approach-row">
-      <div style="font-weight:700; color:#d66020;">バンジー特化</div>
-      <div>商品の体験価値を直接訴求</div>
-      <div>解放感・非日常・スリル</div>
-    </div>
-    <div class="approach-row" style="border-bottom:none;">
-      <div style="font-weight:700; color:#5040a0;">SNS認知活用</div>
-      <div>既認知からの行動転換</div>
-      <div>「見てるだけじゃもったいない」の後押し</div>
-    </div>
-  </div>
-</div>
 </div>
 
 </body>
