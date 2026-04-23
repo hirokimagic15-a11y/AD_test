@@ -210,6 +210,18 @@
   .reason-list li::before { content: '✓'; position: absolute; left: 0; font-size: 11px; top: 8px; }
   .reason-list.ng li::before { content: '✗'; color: var(--red); }
 
+  /* ── Concept Section ── */
+  .concept-block { margin-bottom: 32px; }
+  .concept-block-hd { font-size: 15px; font-weight: 700; color: var(--ink); padding-bottom: 12px; border-bottom: 2px solid var(--line); margin-bottom: 16px; }
+  .concept-ex-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .concept-ex-item { background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--gold); padding: 12px 16px; font-size: 14px; font-weight: 600; color: var(--ink); }
+  .concept-note { font-size: 14px; color: var(--ink-mid); line-height: 1.85; }
+  .desire-map { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 20px; }
+  .desire-map-row { display: grid; grid-template-columns: 200px 28px 1fr; background: var(--white); align-items: center; }
+  .dmap-desire { padding: 12px 16px; font-size: 13px; font-weight: 600; color: var(--ink); }
+  .dmap-arrow { text-align: center; font-size: 13px; color: var(--gold); font-weight: 700; }
+  .dmap-market { padding: 12px 16px; font-size: 13px; color: var(--ink-mid); border-left: 1px solid var(--line); }
+
   @media print {
     .cr-img { position: static; }
     .cr-layout { grid-template-columns: 200px 1fr; gap: 32px; }
@@ -322,6 +334,7 @@
     .sum-point-body { padding: 14px 12px; }
     .sum-recommend { padding: 16px; }
     .sum-recommend-val { font-size: 15px; }
+    .desire-map-row { grid-template-columns: 1fr 20px 1fr; }
   }
 </style>
 </head>
@@ -435,6 +448,101 @@
     <div class="callout" style="margin-top:16px;">
       <strong>媒体方針</strong>
       <p>勢いだけの絶叫訴求より、<b>"二人の休日の行き先決定"</b>に寄せた方が媒体に合う。雑誌広告でやるべきことは「もっとバズらせる」ではなく、<b>予約行動へ変えること</b>。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Desire Concept ── -->
+<div class="section">
+  <div class="sec-hd">
+    <div class="sec-title" style="font-size:18px;">セールスコピーの大前提：欲求は作れない</div>
+  </div>
+
+  <!-- コア命題 -->
+  <div class="concept-block">
+    <div class="callout">
+      <strong>欲求を生み出すのではない</strong>
+      <p>セールスコピーは欲求を<b>作れない</b>。できるのは、人が今すでに持っている欲求を商品につなぐことだけだ。<br>どれほど巧みな文章も、そこにない欲求を生み出すことはできない。</p>
+    </div>
+  </div>
+
+  <!-- ワガママな欲求の例 -->
+  <div class="concept-block">
+    <div class="concept-block-hd">人は「ワガママな欲求」を持っている</div>
+    <p class="concept-note" style="margin-bottom:12px;">誰もが心の奥に「非合理でも、こうなりたい」という欲求を持っている。それを否定したり変えようとするのが広告の仕事ではない。</p>
+    <div class="concept-ex-list">
+      <div class="concept-ex-item">寝てるだけでお金が入ってこないか</div>
+      <div class="concept-ex-item">運動しないで痩せたい</div>
+      <div class="concept-ex-item">努力しないで英語を習得したい</div>
+      <div class="concept-ex-item">仕事をサボってもクビにならないようにしたい</div>
+      <div class="concept-ex-item">お金をかけずに若く見られたい</div>
+    </div>
+    <p class="concept-note">これらは「非現実的だ」と批判するより、そのまま受け取るべき欲求だ。広告はその欲求に乗っかる。</p>
+  </div>
+
+  <!-- 諦めても欲求はなくならない -->
+  <div class="concept-block">
+    <div class="concept-block-hd">諦めても、欲求はなくならない</div>
+    <p class="concept-note" style="margin-bottom:12px;">「どうせ無理だ」と諦めた人も、欲求そのものは消えていない。<br>広告の仕事は、眠っている欲求に<b>「実は手が届くかもしれない」</b>と気づかせることだ。</p>
+    <div class="concept-ex-list">
+      <div class="concept-ex-item">株の配当で生活できるレベルになった</div>
+      <div class="concept-ex-item">仕組みを作って自動化した</div>
+      <div class="concept-ex-item">副業で月収100万円を超えた</div>
+    </div>
+    <p class="concept-note">このようなメッセージが刺さるのは、欲求が生きているからだ。</p>
+  </div>
+
+  <!-- 欲求と商品の関係（瞬足） -->
+  <div class="concept-block">
+    <div class="concept-block-hd">欲求と商品の関係：瞬足の例</div>
+    <p class="concept-note">「足が速くなりたい」という欲求は子どもたちの中に元々ある。アキレスが作った「瞬足」はその欲求を新しい商品につないだだけだ。欲求を作ったのではなく、<b>欲求の受け皿になった</b>。それが市場を生む。</p>
+  </div>
+
+  <!-- 広告でやるべきこと -->
+  <div class="concept-block">
+    <div class="concept-block-hd">広告でやるべきこと：手術と薬の違い</div>
+    <p class="concept-note">医者は病気を作らない。すでに病気の人に、手術か薬かを選ばせるだけだ。<br>広告も同じ。欲求を持っている人に対して、<b>「その欲求に答えるのはこの商品だ」</b>と示すことが仕事。欲求のないところへ押し売りしても機能しない。</p>
+  </div>
+
+  <!-- 大衆欲求を決める -->
+  <div class="concept-block">
+    <div class="concept-block-hd">大衆欲求を決める：どの欲求につなぐか</div>
+    <p class="concept-note" style="margin-bottom:14px;">欲求は市場と対応している。どの欲求を狙うかで、広告が戦う市場が決まる。</p>
+    <div class="desire-map">
+      <div class="desire-map-row">
+        <div class="dmap-desire">痩せたい</div>
+        <div class="dmap-arrow">→</div>
+        <div class="dmap-market">ダイエット市場</div>
+      </div>
+      <div class="desire-map-row">
+        <div class="dmap-desire">モテたい</div>
+        <div class="dmap-arrow">→</div>
+        <div class="dmap-market">美容・ファッション・マッチング市場</div>
+      </div>
+      <div class="desire-map-row">
+        <div class="dmap-desire">お金が欲しい</div>
+        <div class="dmap-arrow">→</div>
+        <div class="dmap-market">投資・副業・転職市場</div>
+      </div>
+      <div class="desire-map-row">
+        <div class="dmap-desire">楽しい思い出を作りたい</div>
+        <div class="dmap-arrow">→</div>
+        <div class="dmap-market">レジャー・旅行・体験市場</div>
+      </div>
+      <div class="desire-map-row">
+        <div class="dmap-desire">非日常を味わいたい</div>
+        <div class="dmap-arrow">→</div>
+        <div class="dmap-market">エンタメ・アウトドア・アドベンチャー市場</div>
+      </div>
+    </div>
+    <p class="concept-note"><b>不変の原動力</b>（食欲・性欲・安全欲求・承認欲求など）は時代が変わっても消えない。<b>変化する原動力</b>（トレンド・流行・社会的価値観）はその時代の表現方法を変える。広告は両方を見て、欲求の核を特定する。</p>
+  </div>
+
+  <!-- GRAVITATEへの適用 -->
+  <div class="concept-block">
+    <div class="callout">
+      <strong>GRAVITATEの広告が狙う欲求</strong>
+      <p>「楽しい思い出を二人で作りたい」「非日常の体験で特別な時間を過ごしたい」——これはターゲットがすでに持っている欲求だ。<br>広告の仕事は、<b>その欲求の受け皿がGRAVITATE OSAKAだと伝えること</b>。新しい欲求を作ろうとしない。</p>
     </div>
   </div>
 </div>
