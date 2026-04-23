@@ -43,6 +43,19 @@
   .cover-ov-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 10px; font-weight: 700; }
   .cover-ov-body { font-size: 14px; color: var(--ink); line-height: 1.85; }
 
+  /* ── Kennedy Triangle ── */
+  .kennedy-section { background: var(--white); padding: 56px 0; border-bottom: 1px solid var(--line); }
+  .kennedy-lead { font-size: 14px; color: var(--ink-mid); line-height: 1.9; margin-bottom: 32px; }
+  .kennedy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); margin-bottom: 24px; }
+  .kennedy-card { background: var(--white); padding: 28px 24px; position: relative; }
+  .kennedy-card.active { background: #1a1a1a; }
+  .ken-label { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+  .ken-title { font-size: 20px; font-weight: 800; margin-bottom: 12px; color: var(--ink); }
+  .kennedy-card.active .ken-title { color: var(--white); }
+  .ken-body { font-size: 13px; color: var(--ink-mid); line-height: 1.8; }
+  .kennedy-card.active .ken-body { color: #bbb; }
+  .ken-fixed { display: inline-block; margin-top: 14px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 3px 10px; background: var(--gold); color: var(--white); }
+
   /* ── Container ── */
   .container { max-width: 1080px; margin: 0 auto; padding: 0 64px; }
 
@@ -221,6 +234,11 @@
     .cover-overview-grid { grid-template-columns: 1fr; }
     .cover-ov-item { padding: 16px; }
 
+    /* ─ Kennedy ─ */
+    .kennedy-section { padding: 32px 0; }
+    .kennedy-grid { grid-template-columns: 1fr; }
+    .kennedy-card { padding: 20px 16px; }
+
     /* ─ Flow banner: 横並び → 縦積み ─ */
     .flow-banner {
       padding: 0;
@@ -339,6 +357,41 @@
         <div class="cover-ov-label">設計フレームワーク</div>
         <div class="cover-ov-body">認知度4「商品を知っているが自分に合うかわからない」状態の読者に対し、欲求を正当化して行動へ押す。施設説明の繰り返しではなく3つの証拠で背中を押す構成</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Kennedy Triangle ── -->
+<div class="kennedy-section">
+  <div class="container">
+    <div class="sec-hd">
+      <div class="sec-num">FRAMEWORK</div>
+      <div class="sec-title">ダン・ケネディ 成果の三角形</div>
+    </div>
+    <p class="kennedy-lead">マーケティングには3つの構成要素がある。どんなものにも・どんな場所でも・どんな時でも・どんな価格でも・誰に対するものでも・どんな状況下でも当てはまり、すべてのビジネスが繁盛するためにこの3要素を必要とする。</p>
+    <div class="kennedy-grid">
+      <div class="kennedy-card active">
+        <div class="ken-label">Market</div>
+        <div class="ken-title">マーケット</div>
+        <div class="ken-body">誰に届けるか。ターゲットの欲求・悩み・心理状態を深く理解することで、メッセージが刺さる土台を作る。</div>
+        <span class="ken-fixed">今回：読者分析を起点に設計</span>
+      </div>
+      <div class="kennedy-card">
+        <div class="ken-label">Media</div>
+        <div class="ken-title">メディア</div>
+        <div class="ken-body">どこで届けるか。ターゲットが実際に接触している媒体・チャネルを選ぶことで、メッセージが読まれる確率を最大化する。</div>
+        <span class="ken-fixed" style="background:var(--ink-mid);">今回：関西ウォーカーに確定済み</span>
+      </div>
+      <div class="kennedy-card">
+        <div class="ken-label">Message</div>
+        <div class="ken-title">メッセージ</div>
+        <div class="ken-body">何を伝えるか。ターゲットの欲求に直接語りかけ、行動を引き出すコピー・ビジュアル・オファーの設計。</div>
+        <span class="ken-fixed" style="background:var(--ink-mid);">今回：既存4案を検討</span>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:0;">
+      <strong>この構成案の設計順序</strong>
+      <p>メディアが<b>関西ウォーカー</b>と確定している以上、3要素のうち「どこで届けるか」は所与。そのため<b>まず読者（マーケット）を徹底分析し、そこから最適なメッセージを導く</b>という順序で設計した。</p>
     </div>
   </div>
 </div>
